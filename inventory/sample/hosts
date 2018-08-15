@@ -1,0 +1,19 @@
+#
+[etcd]
+192.168.15.231
+192.168.15.232
+192.168.15.233
+
+[master]
+192.168.15.231
+192.168.15.232
+192.168.15.233
+
+[worker]
+192.168.15.181
+192.168.15.182
+192.168.15.183
+
+[all:vars]
+ansible_ssh_user=root
+#ansible_ssh_private_key_file= ~/kubernetes.pem

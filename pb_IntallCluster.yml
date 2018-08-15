@@ -1,0 +1,43 @@
+---
+- name: "Hosts - tasks common for all hosts"
+  hosts: all
+  become: yes
+
+  roles:
+    - roles/common 
+
+- name: "ETCD"
+  hosts: etcd
+  become: yes
+
+  roles: 
+    - roles/etcd
+
+- name: "MASTER"
+  hosts: master
+  become: yes
+
+  roles:
+    - roles/master
+
+- name: "KeepAlived"
+  hosts: master
+  become: yes
+
+  roles:
+    - roles/keepalived
+      
+      #    - import_tasks: etcd.yml
+      #      tags: etcd
+      #
+      #    - import_tasks: master.yml
+      #      tags: master
+      #
+      #    - import_tasks: keepalived.yml
+      #      tags: keepalived
+      #
+      #    - import_tasks: worker.yml
+      #      tags: worker
+      #
+      #    - import_tasks: destroyCluster.yml
+      #      tags: destroyCluster

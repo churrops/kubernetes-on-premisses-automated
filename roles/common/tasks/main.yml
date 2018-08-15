@@ -1,0 +1,14 @@
+---
+- import_tasks: basic.yml
+  tags: basic
+
+- import_tasks: preparing-redhat.yml
+  tags: redhat
+  when: ansible_os_family == "RedHat"
+
+- import_tasks: preparing-ubuntu.yml
+  tags: ubuntu
+  when: ansible_os_family == "Debian"
+
+- import_tasks: preparing.yml
+  tags: preparing
